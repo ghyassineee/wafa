@@ -1,0 +1,238 @@
+/**
+ * Title: Fill round icons Flaticon Pack
+ * Author: Sebastien Gabriel
+ * Source: https://www.flaticon.com/packs/fill-round-icons
+ * License:  CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+ */
+
+ @font-face {
+	font-family: "fl-fill-round-icons";
+	src: url("../fonts/fl-fill-round-icons.eot");
+	src: url("../fonts/fl-fill-round-icons.eot?#iefix") format("embedded-opentype"),
+		 url("../fonts/fl-fill-round-icons.woff") format("woff"),
+		 url("../fonts/fl-fill-round-icons.ttf") format("truetype"),
+		 url("../fonts/fl-fill-round-icons.svg#fl-fill-round-icons") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+.fl-fill-round-icons-ico,
+[class^="fl-fill-round-icons-"]:before, [class*=" fl-fill-round-icons-"]:before,
+[class^="fl-fill-round-icons-"]:after, [class*=" fl-fill-round-icons-"]:after {   
+	font-family: 'fl-fill-round-icons';
+    font-size: inherit;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.fl-fill-round-icons-add131:before {
+	content: "\e000";
+}
+.fl-fill-round-icons-archive19:before {
+	content: "\e001";
+}
+.fl-fill-round-icons-arroba13:before {
+	content: "\e002";
+}
+.fl-fill-round-icons-arrow588:before {
+	content: "\e003";
+}
+.fl-fill-round-icons-attachment12:before {
+	content: "\e004";
+}
+.fl-fill-round-icons-back35:before {
+	content: "\e005";
+}
+.fl-fill-round-icons-book182:before {
+	content: "\e006";
+}
+.fl-fill-round-icons-bookmarking:before {
+	content: "\e007";
+}
+.fl-fill-round-icons-business161:before {
+	content: "\e008";
+}
+.fl-fill-round-icons-calendar143:before {
+	content: "\e009";
+}
+.fl-fill-round-icons-chat46:before {
+	content: "\e00a";
+}
+.fl-fill-round-icons-circular207:before {
+	content: "\e00b";
+}
+.fl-fill-round-icons-close39:before {
+	content: "\e00c";
+}
+.fl-fill-round-icons-cloud243:before {
+	content: "\e00d";
+}
+.fl-fill-round-icons-coffee57:before {
+	content: "\e00e";
+}
+.fl-fill-round-icons-compass78:before {
+	content: "\e00f";
+}
+.fl-fill-round-icons-contrast19:before {
+	content: "\e010";
+}
+.fl-fill-round-icons-copy16:before {
+	content: "\e011";
+}
+.fl-fill-round-icons-copy18:before {
+	content: "\e012";
+}
+.fl-fill-round-icons-counterclockwise1:before {
+	content: "\e013";
+}
+.fl-fill-round-icons-curved21:before {
+	content: "\e014";
+}
+.fl-fill-round-icons-equalizer24:before {
+	content: "\e015";
+}
+.fl-fill-round-icons-fast30:before {
+	content: "\e016";
+}
+.fl-fill-round-icons-flash20:before {
+	content: "\e017";
+}
+.fl-fill-round-icons-folder162:before {
+	content: "\e018";
+}
+.fl-fill-round-icons-gps19:before {
+	content: "\e019";
+}
+.fl-fill-round-icons-gps21:before {
+	content: "\e01a";
+}
+.fl-fill-round-icons-headphones28:before {
+	content: "\e01b";
+}
+.fl-fill-round-icons-home131:before {
+	content: "\e01c";
+}
+.fl-fill-round-icons-infinite5:before {
+	content: "\e01d";
+}
+.fl-fill-round-icons-lifeguard3:before {
+	content: "\e01e";
+}
+.fl-fill-round-icons-localization3:before {
+	content: "\e01f";
+}
+.fl-fill-round-icons-menu36:before {
+	content: "\e020";
+}
+.fl-fill-round-icons-microphone72:before {
+	content: "\e021";
+}
+.fl-fill-round-icons-minus74:before {
+	content: "\e022";
+}
+.fl-fill-round-icons-monitor65:before {
+	content: "\e023";
+}
+.fl-fill-round-icons-monitor67:before {
+	content: "\e024";
+}
+.fl-fill-round-icons-mouse41:before {
+	content: "\e025";
+}
+.fl-fill-round-icons-move23:before {
+	content: "\e026";
+}
+.fl-fill-round-icons-music208:before {
+	content: "\e027";
+}
+.fl-fill-round-icons-new67:before {
+	content: "\e028";
+}
+.fl-fill-round-icons-numeral3:before {
+	content: "\e029";
+}
+.fl-fill-round-icons-pause34:before {
+	content: "\e02a";
+}
+.fl-fill-round-icons-pencil79:before {
+	content: "\e02b";
+}
+.fl-fill-round-icons-pencil80:before {
+	content: "\e02c";
+}
+.fl-fill-round-icons-persons11:before {
+	content: "\e02d";
+}
+.fl-fill-round-icons-phone343:before {
+	content: "\e02e";
+}
+.fl-fill-round-icons-phone344:before {
+	content: "\e02f";
+}
+.fl-fill-round-icons-photo163:before {
+	content: "\e030";
+}
+.fl-fill-round-icons-photo164:before {
+	content: "\e031";
+}
+.fl-fill-round-icons-photo166:before {
+	content: "\e032";
+}
+.fl-fill-round-icons-play76:before {
+	content: "\e033";
+}
+.fl-fill-round-icons-power95:before {
+	content: "\e034";
+}
+.fl-fill-round-icons-print29:before {
+	content: "\e035";
+}
+.fl-fill-round-icons-projector5:before {
+	content: "\e036";
+}
+.fl-fill-round-icons-recycle57:before {
+	content: "\e037";
+}
+.fl-fill-round-icons-rewind35:before {
+	content: "\e038";
+}
+.fl-fill-round-icons-right129:before {
+	content: "\e039";
+}
+.fl-fill-round-icons-search71:before {
+	content: "\e03a";
+}
+.fl-fill-round-icons-security43:before {
+	content: "\e03b";
+}
+.fl-fill-round-icons-share25:before {
+	content: "\e03c";
+}
+.fl-fill-round-icons-shower9:before {
+	content: "\e03d";
+}
+.fl-fill-round-icons-speaker71:before {
+	content: "\e03e";
+}
+.fl-fill-round-icons-star150:before {
+	content: "\e03f";
+}
+.fl-fill-round-icons-statistics6:before {
+	content: "\e040";
+}
+.fl-fill-round-icons-tray14:before {
+	content: "\e041";
+}
+.fl-fill-round-icons-two291:before {
+	content: "\e042";
+}
+.fl-fill-round-icons-verification14:before {
+	content: "\e043";
+}
+.fl-fill-round-icons-visible5:before {
+	content: "\e044";
+}
+.fl-fill-round-icons-wallet22:before {
+	content: "\e045";
+}

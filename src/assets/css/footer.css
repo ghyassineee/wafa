@@ -1,0 +1,43 @@
+/* Custom container class */
+.custom-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 40px;
+}
+
+/* Custom row class */
+.custom-row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Custom column class for medium-sized screens */
+.custom-col {
+    float: left;
+    width: 30.333333%;
+    padding: 0 15px;
+}
+
+/* Custom footer class */
+.custom-footer {
+    padding: 30px 0px;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 35%;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .custom-col {
+        width: 100%; /* Each column takes full width on small screens */
+        padding: 0;
+        margin-bottom: 20px; /* Add some space between columns */
+    }
+
+
+}

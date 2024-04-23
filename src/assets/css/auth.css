@@ -1,0 +1,803 @@
+.lowin {
+    --color-primary: #E80675;
+    --color-grey: rgba(232, 6, 117, 0.06);
+    --color-dark: rgba(232, 6, 117, 0.9);
+    --color-semidark: rgba(232, 6, 117, 0.5);
+
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+    overflow: hidden;
+    color: #fff;  /* Ensures text is white */
+}
+
+.lowin::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/authpage.jpg'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Lower opacity to blend with primary color */
+    z-index: -1;
+}
+
+.lowin .lowin-wrapper {
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+	-webkit-perspective: 1000px;
+	        perspective: 1000px;
+	position: relative;
+	height: 100%;
+	width: 550px;
+	margin: 0 auto;
+}
+
+.validation-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+  
+.lowin.lowin-red {
+	--color-primary: #ff6464;
+	--color-grey: rgba(255, 100, 100, .06);
+	--color-dark: rgba(255, 100, 100, .8);
+	--color-semidark: rgba(255, 100, 100, .55);
+}
+
+.lowin.lowin-green {
+	--color-primary: #D0EF84;
+	--color-grey: rgba(208, 239, 132, .15);
+	--color-dark: rgba(208, 239, 132, 1);
+	--color-semidark: rgba(208, 239, 132, .6);
+}
+
+.lowin.lowin-purple {
+	--color-primary: #6C567B;
+	--color-grey: rgba(108, 86, 123, .08);
+	--color-dark: rgba(108, 86, 123, .7);
+	--color-semidark: rgba(108, 86, 123, .45);
+}
+
+.lowin.lowin-blue {
+	--color-primary: #0081C6;
+	--color-grey: rgba(0, 129, 198, .05);
+	--color-dark: rgba(0, 129, 198, .7);
+	--color-semidark: rgba(0, 129, 198, .45);
+}
+
+.lowin button {
+	color: var(--color-primary);
+	text-decoration: none;
+
+}
+
+.lowin * {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.lowin .lowin-brand {
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto -50px auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, .07);
+    padding: 10px;
+    background-color: #fff;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	top:30px;
+	border: 1px solid #AE0555;
+}
+
+
+.lowin .lowin-brand img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* This ensures the image covers the area without stretching. */
+}
+
+
+.lowin .lowin-box {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 30px;
+}
+
+.lowin .lowin-box-inner {
+	background-color: #fff;
+	-webkit-box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+	        box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+	padding: 60px 25px 25px 25px;
+	text-align: left;
+	border-radius: 3px;
+}
+
+.lowin .lowin-box::after {
+	content: ' ';
+	-webkit-box-shadow: 0 0 25px rgba(0, 0, 0, .1);
+	        box-shadow: 0 0 25px rgba(0, 0, 0, .1);
+	-webkit-transform: translate(0, -92.6%) scale(.88);
+	    -ms-transform: translate(0, -92.6%) scale(.88);
+	        transform: translate(0, -92.6%) scale(.88);
+	border-radius: 3px;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index: -1;
+}
+
+.lowin .lowin-box.lowin-flip {
+	-webkit-transform: rotate3d(0, 1, 0, -180deg);
+	        transform: rotate3d(0, 1, 0, -180deg);
+	display: none;
+	opacity: 0;
+}
+
+.lowin .lowin-box p {
+	color: var(--color-semidark);
+	font-weight: 700;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.lowin .lowin-box .lowin-group {
+	margin-bottom: 15px;
+}
+
+.lowin .lowin-box label {
+	margin-bottom: 5px;
+	display: inline-block;
+	width: 100%;
+	color: var(--color-semidark);
+	font-weight: 700;
+}
+
+.lowin .lowin-box label button {
+	float: right;
+}
+
+.lowin .lowin-input {
+    background-color: var(--color-grey);
+    color: var(--color-dark);
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 12px 20px;
+    width: 100%;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+
+.lowin .lowin-input::placeholder {
+    color: var(--color-dark);
+    opacity: 0.7;
+}
+
+.lowin .lowin-box .lowin-btn {
+	display: inline-block;
+	width: 100%;
+	border: none;
+	color: #fff;
+	padding: 15px;
+	border-radius: 3px;
+	background-color: var(--color-primary);
+	-webkit-box-shadow: 0 2px 7px var(--color-semidark);
+	        box-shadow: 0 2px 7px var(--color-semidark);
+	font-weight: 700;
+	outline: 0;
+	cursor: pointer;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+
+.lowin .lowin-box .lowin-btn:active {
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.lowin .lowin-box .lowin-btn:hover {
+	opacity: .9;
+}
+
+.lowin .text-foot {
+	text-align: center;
+	padding: 10px;
+	font-weight: 700;
+	margin-top: 20px;
+	color: var(--color-semidark);
+}
+
+.lowin .lowin-footer {
+	text-align: center;
+	margin: 30px 0;
+	font-size: 12px;
+	color: var(--color-semidark);
+	font-weight: 700;
+}
+
+.lowin .login-back-link {
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+	display: none;
+	opacity: 0;
+}
+.password-remember-group {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+/* animation */
+.lowin .lowin-box.lowin-animated {
+	-webkit-animation-name: LowinAnimated;
+	        animation-name: LowinAnimated;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+}
+
+.lowin .lowin-box.lowin-animatedback {
+	-webkit-animation-name: LowinAnimatedBack;
+	        animation-name: LowinAnimatedBack;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+}
+
+.lowin .lowin-box.lowin-animated-flip {
+	-webkit-animation-name: LowinAnimatedFlip;
+	        animation-name: LowinAnimatedFlip;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+}
+
+.lowin .lowin-box.lowin-animated-flipback {
+	-webkit-animation-name: LowinAnimatedFlipBack;
+	        animation-name: LowinAnimatedFlipBack;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+}
+
+.lowin .lowin-brand.lowin-animated {
+	-webkit-animation-name: LowinBrandAnimated;
+	        animation-name: LowinBrandAnimated;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+}
+
+.lowin .lowin-group.password-group {
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+.lowin .lowin-group.password-group.lowin-animated {
+	-webkit-animation-name: LowinPasswordAnimated;
+	        animation-name: LowinPasswordAnimated;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+}
+
+.lowin .lowin-group.password-group.lowin-animated-back {
+	-webkit-animation-name: LowinPasswordAnimatedBack;
+	        animation-name: LowinPasswordAnimatedBack;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+}
+
+/* keyframes */
+@-webkit-keyframes LowinAnimated {
+	0% {
+		-webkit-transform: rotate3d(0);
+		        transform: rotate3d(0);
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: rotate3d(0, 1, 0, 180deg);
+		        transform: rotate3d(0, 1, 0, 180deg);
+	}
+}
+@keyframes LowinAnimated {
+	0% {
+		-webkit-transform: rotate3d(0);
+		        transform: rotate3d(0);
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: rotate3d(0, 1, 0, 180deg);
+		        transform: rotate3d(0, 1, 0, 180deg);
+	}
+}
+
+@-webkit-keyframes LowinAnimatedBack {
+	0% {
+		opacity: 0;
+		-webkit-transform: rotate3d(0, 1, 0, 180deg);
+		        transform: rotate3d(0, 1, 0, 180deg);
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: rotate3d(0);
+		        transform: rotate3d(0);
+	}
+}
+
+@keyframes LowinAnimatedBack {
+	0% {
+		opacity: 0;
+		-webkit-transform: rotate3d(0, 1, 0, 180deg);
+		        transform: rotate3d(0, 1, 0, 180deg);
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: rotate3d(0);
+		        transform: rotate3d(0);
+	}
+}
+
+@-webkit-keyframes LowinAnimatedFlip {
+	0% {
+		-webkit-transform: rotate3d(0, 1, 0, -180deg);
+		        transform: rotate3d(0, 1, 0, -180deg);
+		opacity: 0;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: rotate3d(0, 0, 0, 180deg);
+		        transform: rotate3d(0, 0, 0, 180deg);
+	}
+}
+
+@keyframes LowinAnimatedFlip {
+	0% {
+		-webkit-transform: rotate3d(0, 1, 0, -180deg);
+		        transform: rotate3d(0, 1, 0, -180deg);
+		opacity: 0;
+	}
+	99% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: rotate3d(0, 0, 0, 180deg);
+		        transform: rotate3d(0, 0, 0, 180deg);
+	}
+}
+
+@-webkit-keyframes LowinAnimatedFlipBack {
+	0% {
+		opacity: 1;
+		-webkit-transform: rotate3d(0, 0, 0, 180deg);
+		        transform: rotate3d(0, 0, 0, 180deg);
+	}
+	95% {
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: rotate3d(0, 1, 0, -180deg);
+		        transform: rotate3d(0, 1, 0, -180deg);
+		opacity: 0;
+	}
+}
+
+@keyframes LowinAnimatedFlipBack {
+	0% {
+		opacity: 1;
+		-webkit-transform: rotate3d(0, 0, 0, 180deg);
+		        transform: rotate3d(0, 0, 0, 180deg);
+	}
+	95% {
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: rotate3d(0, 1, 0, -180deg);
+		        transform: rotate3d(0, 1, 0, -180deg);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes LowinBrandAnimated {
+	0% {
+		-webkit-transform: translate(0, 0);
+		        transform: translate(0, 0);
+	}
+	50% {
+		-webkit-transform: translate(0, -120px);
+		        transform: translate(0, -120px);
+	}
+	100% {
+		-webkit-transform: translate(0, 0);
+		        transform: translate(0, 0);
+	}
+}
+
+@keyframes LowinBrandAnimated {
+	0% {
+		-webkit-transform: translate(0, 0);
+		        transform: translate(0, 0);
+	}
+	50% {
+		-webkit-transform: translate(0, -120px);
+		        transform: translate(0, -120px);
+	}
+	100% {
+		-webkit-transform: translate(0, 0);
+		        transform: translate(0, 0);
+	}
+}
+
+@-webkit-keyframes LowinPasswordAnimated {
+	0% {
+		-webkit-transform: rotate3d(0, 0, 0, 0);
+		        transform: rotate3d(0, 0, 0, 0);
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: rotate3d(1, 0, 0, -180deg);
+		        transform: rotate3d(1, 0, 0, -180deg);
+		z-index: -1;
+	}
+}
+
+@keyframes LowinPasswordAnimated {
+	0% {
+		-webkit-transform: rotate3d(0, 0, 0, 0);
+		        transform: rotate3d(0, 0, 0, 0);
+	}
+	30% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: rotate3d(1, 0, 0, -180deg);
+		        transform: rotate3d(1, 0, 0, -180deg);
+		z-index: -1;
+	}
+}
+
+@-webkit-keyframes LowinPasswordAnimatedBack {
+	0% {
+		opacity: 0;
+		-webkit-transform: rotate3d(1, 0, 0, -180deg);
+		        transform: rotate3d(1, 0, 0, -180deg);
+	}
+	40% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate3d(0, 0, 0, 0);
+		        transform: rotate3d(0, 0, 0, 0);
+	}
+}
+
+@keyframes LowinPasswordAnimatedBack {
+	0% {
+		opacity: 0;
+		-webkit-transform: rotate3d(1, 0, 0, -180deg);
+		        transform: rotate3d(1, 0, 0, -180deg);
+	}
+	40% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotate3d(0, 0, 0, 0);
+		        transform: rotate3d(0, 0, 0, 0);
+	}
+}
+@media screen and (max-width: 760px) {
+	.lowin .lowin-wrapper {
+		width: 80%;
+	}
+}
+@media screen and (max-width: 320px) {
+	.lowin .lowin-wrapper {
+		width: 100%;
+	}
+	.lowin .lowin-box {
+		padding: 0 10px;
+	}
+}
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-row .lowin-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-row .lowin-group:last-child {
+    margin-right: 0;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.lowin-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.validation-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+.lowin-wrapper {
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+	transform-origin: top;
+  }
+  
+  /* Initial state, non-visible for new entering views */
+  .lowin-wrapper.enter {
+	opacity: 0;
+	transform: scale(1.1);
+  }
+  
+  /* Final state for visible views */
+  .lowin-wrapper.enter-active {
+	opacity: 1;
+	transform: scale(1);
+  }
+  
+  /* Initial state for leaving views */
+  .lowin-wrapper.exit {
+	opacity: 1;
+	transform: scale(1);
+  }
+  
+  /* Final state, non-visible for leaving views */
+  .lowin-wrapper.exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+  }
+  .lowin-wrapper {
+	transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .lowin-animated {
+	opacity: 0;
+	transform: scale(0.95);
+  }
+  .lowin-input, .PhoneInputInput {
+    height: 40px; 
+    background:white !important; /* Same background as the input */
+	border: none;
+	/* Removes border-radius */
+    width: 100%; /* Ensures input takes full width */
+    padding: 8px; /* Padding inside input */
+    box-sizing: border-box; /* Makes sure padding does not affect width */
+	border: 1px solid #AE0555 !important;
+}
+.PhoneInputInput {
+    height: 40px; 
+    background:white !important; /* Same background as the input */
+	border: none;
+    border-radius: 5px !important; 
+	border-left: 0px solid #AE0555 !important;
+	/* Removes border-radius */
+    width: 100%; /* Ensures input takes full width */
+    padding: 8px; /* Padding inside input */
+    box-sizing: border-box; /* Makes sure padding does not affect width */
+	border: 1px solid #AE0555 !important;
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+	border-left: 0px solid #AE0555 !important;
+
+
+}
+.PhoneInputCountrySelect {
+    background: #fff; /* Same background as the input */
+    border: 1px solid #ccc; /* Same border color */
+    border-right: none; /* Removes right border to connect with phone input field */
+}
+
+/* Hide the dropdown arrow */
+.PhoneInputCountrySelectArrow {
+    display: none;
+}
+
+/* Style the country select with a border and adjust flag positioning */
+.PhoneInputCountrySelect {
+    border: 1px solid #E80675; /* Rose color border */
+    background-position: center center; /* Center the flag vertically and horizontally */
+    background-size: 20px 20px; /* Adjust size of the flag as needed */
+    text-indent: 110%; /* Hide the country code text offscreen */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Ensures no text or overflow content is visible */
+}
+
+/* Adjustments if the country selector is part of a larger input group */
+.PhoneInputCountrySelect,
+.PhoneInputInput {
+    border-radius: 0; /* No rounded corners for uniformity */
+    border-right: none; /* Remove border between country select and input if desired
+
+.PhoneInputInput {
+    border-left: none; /* Removes left border where it meets country select */
+}
+  
+.lowin-input, .PhoneInputInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc; /* Consistent border color */
+    border-radius: 0; /* Remove border radius if any */
+}
+
+.lowin-input:focus, .PhoneInputInput:focus,
+.lowin-input:hover, .PhoneInputInput:hover {
+border: none;	
+    border: 2px solid var(--color-primary) !important; /* Rose color bottom border on focus/hover */
+    outline: none; /* Removes the default outline */
+}
+
+
+/* Removing border-radius specifically from the phone input dropdown to align with other inputs */
+.PhoneInputCountrySelect, .PhoneInputCountrySelect:focus {
+    border-radius: 0; /* No rounded corners */
+}
+
+/* Styling for the container of the phone input to align with other form elements */
+.form-row .lowin-group {
+    flex: 1;
+    margin-right: 10px;
+    position: relative; /* Position relative for absolute positioning of pseudo-elements */
+}
+
+.form-row .lowin-group:last-child {
+    margin-right: 0;
+}
+
+/* Additional hover and focus styling for better UX */
+.lowin-input:hover, .PhoneInputInput:hover,
+.lowin-input:focus, .PhoneInputInput:focus {
+    background-color: #f9f9f9; /* Slightly different background on hover/focus */
+}
+
+/* General styles for the form elements */
+.captcha-container {
+    margin: 15px auto; /* Centering and spacing for captcha */
+    display: flex;
+    justify-content: center; /* Center captcha horizontally */
+}
+/* General Text Color Enhancement */
+.lowin-box-inner p {
+	color:#AE0555 !important;
+	font-size: 26px;
+  }
+  
+  /* Highlighted Texts and Headings */
+  .lowin-box-inner h1,
+  .lowin-box-inner h2,
+  .lowin-box-inner h3 {
+	color: #e80675 !important;
+  }
+  
+
+  
+/* auth.css */
+
+.inputStyle {
+	width: 60px !important;      /* Width of each input box */
+	height: 50px !important;     /* Height of each input box */
+	margin: 0 5px;    /* Spacing between input boxes */
+	font-size: 16px;  /* Font size inside input boxes */
+	border-radius: 8px; /* Border radius for rounded corners */
+	text-align: center; /* Center text inside the input box */
+	border: 2px solid #E80675; /* Border color and style */
+  }
+  .inputStyle:hover, .inputStyle:focus {
+    border-color: #AE0555;       /* Darker border color on hover and focus */
+    outline: none;               /* Remove default focus outline if desired */
+}
+  /* auth.css */
+
+.otpInputStyle {
+	width: 40px;      /* Width of each input box */
+	height: 40px;     /* Height of each input box */
+	margin: 0 5px;    /* Spacing between input boxes */
+	font-size: 16px;  /* Font size inside input boxes */
+	border-radius: 8px; /* Border radius for rounded corners */
+	text-align: center; /* Center text inside the input box */
+	border: 1px solid #ccc; /* Border color and style */
+  }
+  
+  .otpGroup {
+	margin: 50px 0px !important; /* Adjust the top margin for spacing */
+	width: 100%;
+	display: flex;
+	justify-content: center; /* Centers the OTP input container */
+  }
+  .PhoneInputCountry{
+	border: 1px solid #AE0555; /* Border color and style */
+	border-right: 0px solid #AE0555 !important;
+	margin-right: 0px;
+	padding: 0px 5px;
+  } 
+  

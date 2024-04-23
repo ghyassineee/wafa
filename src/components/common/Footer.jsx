@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faWhatsapp, faInstagram} from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import img01 from '../../assets/images/logo.png';
 
 // Import the CSS file
 import '../../assets/css/footer.css';
@@ -46,13 +47,12 @@ const Footer: React.FC = () => {
           <div className="col-md-4 custom-col">
             {/* Logo */}
             <div>
-              <img className="footer-logo" src={footerData.logo.url} alt="Logo" />
-              {footerData.logo.url}
+              <img className="footer-logo" src={img01} alt="Logo" />
             </div>
             {/* Specialty and Description */}
             <div>
-              <h3>Specialité</h3>
-              <p>Proin vitae nunc tristique, porta magna in, gravida nunc. Fusce</p>
+         
+              <p>Découvrez notre clinique dentaire, où professionnalisme et soin du détail vous garantissent une expérience sans égal</p>
             </div>
           </div>
           <div className="col-md-4 custom-col">
@@ -85,16 +85,17 @@ const Footer: React.FC = () => {
           </div>
         </div>
         {/* Social Media Icons */}
-        <div className="grid_5">
+     
+      </section>
+      {/* Copyright Section */}
+      <div className="custom-footer">
+      <div className="grid_5">
           <ul className="social-list">
             <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebookF} /></a></li>
             <li><a href="https://api.whatsapp.com/send?phone=+21653446514" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faWhatsapp} /></a></li>
             <li><a href="https://www.instagram.com/dr_wafazaiem/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /></a></li>
           </ul>
         </div>
-      </section>
-      {/* Copyright Section */}
-      <div className="custom-footer">
         <span id="copyright-year">&copy; {currentYear} dr wafa. All rights reserved. </span>
       </div>
     </footer>

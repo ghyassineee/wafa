@@ -5,6 +5,7 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 40px;
+    padding-bottom: 30px;
 }
 
 /* Custom row class */
@@ -23,7 +24,8 @@
 
 /* Custom footer class */
 .custom-footer {
-    padding: 30px 0px;
+    padding: 15px 0px;
+    background-color: rgba(40, 40, 40, 0.6); 
     text-align: center;
 }
 

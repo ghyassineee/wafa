@@ -83,7 +83,6 @@ function HomePage() {
           <div className="row">
             <div className="preffix_8 grid_4">
               <h2>Démarche de soin étape par étape</h2>
-              <p>Nous vous guidons à travers chaque étape du traitement pour vous assurer compréhension et confort tout au long de votre parcours de soin.</p>
             </div>
           </div>
         </div>
@@ -190,7 +189,7 @@ function HomePage() {
         <div className="container">
           <div className="row">
             <div className="preffix_4 grid_8">
-              <div className="banner bg3">
+              <div className="banner bg1">
                 <h2>Donner à chaque patient l'opportunité<br/>de briller</h2>
                 <a className="link-circle" href="#"><FontAwesomeIcon icon={faAngleRight} /></a>
               </div>

@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import '../assets/css/contact-page.css';
+import PhoneInput from "react-phone-number-input";
 
 function ReservationPage() {
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const handlePhoneInputChange = (value, country, e, formattedValue) => {
+    // Update the state with the new phone number value
+    setPhoneNumber(value);
+  };
   // Updated state with date and heure
   const [formState, setFormState] = useState({
     name: '',
@@ -53,16 +60,17 @@ function ReservationPage() {
                   <label>
                       <input type="date" name="birthdate" placeholder="jj/mm/aaaa" value={formState.birthdate} onChange={handleChange} />
                     </label>
-                  <label className="date">
-        <input
-          type="date"
-          name="date"
-          placeholder="Date*:"
-          value={formState.date}
-          onChange={handleChange}
-          className="your-custom-class-for-inputs" // Make sure to apply the same class as other inputs
-        />
-      </label>
+                    <label className="form-label">
+              <PhoneInput
+    placeholder="Phone number"
+    value={phoneNumber}
+        onChange={handlePhoneInputChange}
+    defaultCountry="TN"
+    international
+    countryCallingCodeEditable={false} // Keep this to prevent editing of the country code
+    style={{  display: 'flex' }} // Ensures the input takes the full width
+
+  />              </label>
       <label className="heure">
         <input
           type="time"

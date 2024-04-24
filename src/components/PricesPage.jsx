@@ -8,24 +8,24 @@ function PricesPage() {
     <main>
       <section className="bg1 well7">
         <div className="container">
-          <h5>Quick guide to achieve dazzling smile</h5>
+          <h5>Guide rapide pour obtenir un sourire éblouissant</h5>
           <ul className="row index-list2">
             <li className="grid_4">
               <div>
-                <h6>tristique porta magna</h6>
-                <p>Deloamert yasemosera secaerat ai kesesasetrsego etayse Proin vitae nunc tristique, porta</p>
+                <h6>Des soins dentaires de qualité</h6>
+                <p>Nous offrons une gamme complète de services dentaires pour vous aider à maintenir une bonne santé bucco-dentaire.</p>
               </div>
             </li>
             <li className="grid_4">
               <div>
-                <h6>iravida nun usc lobortis</h6>
-                <p>Proirenert yasemosera secaerat ai kesesasetrsego etayse Proin vitae nunc tristique, porta </p>
+                <h6>Une équipe professionnelle</h6>
+                <p>Notre équipe expérimentée et attentionnée est dévouée à vous fournir des soins dentaires de haute qualité dans un environnement confortable.</p>
               </div>
             </li>
             <li className="grid_4">
               <div>
-                <h6>Fusce lobortis sem</h6>
-                <p>Esemosera secaerat ai kesesas etrsego etayse Proin vitae nunc tristique, porta magn</p>
+                <h6>Technologie de pointe</h6>
+                <p>Nous utilisons les dernières technologies et techniques pour assurer des résultats précis et durables pour nos patients.</p>
               </div>
             </li>
           </ul>
@@ -33,14 +33,14 @@ function PricesPage() {
       </section>
       <section className="well9">
         <div className="container">
-          <h5>how much does it cost?</h5>
+          <h5>Quel est le coût des soins dentaires?</h5>
           <div className="row">
             <div className="grid_8 wow fadeInLeft">
-              <h6>Proin vitae nunc tristique porta magna in gravida nunc Fusce lobortis sem vitae risus dignissim fermentum Mauris arcu </h6>
-              <p>Vivamus luctus risus et purus consecteturnec pulvinar neque dictumnteger porttitor dolor a mattis venenatis. Nunc id velit eget lorem semper facilisis ut sed lectus. Donec interdum urna a velit pulvinar, nec sollicitudin leo tristique. Sed mollis massa sit amet ligula aliquet interdum. Maecenas et aliquam nisl. Proin non viverra nibh. </p>
+              <h6>Des soins dentaires accessibles à tous</h6>
+              <p>Nous comprenons que les soins dentaires peuvent être coûteux, c'est pourquoi nous nous efforçons de rendre nos services aussi abordables que possible pour nos patients.</p>
               <br />
-              <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis varius tortor eget suscipit pellentesque. Suspendisse consectet</p>
-              <a className="btn1" href="#">more</a>
+              <p>Nous offrons également des plans de financement flexibles pour vous aider à gérer les coûts des traitements dentaires.</p>
+              <a className="btn1" href="#">En savoir plus</a>
             </div>
             <div className="grid_4 wow fadeInRight">
               <img src={img01} alt="" />
@@ -48,25 +48,25 @@ function PricesPage() {
           </div>
         </div>
       </section>
-      <section class="parallax parallax_3" data-url={img07}>
-      <div 
-  className="parallax_image" 
-  style={{
-    backgroundImage: `url(${img07})`, 
-    backgroundColor: 'inherit', 
-    height: '703px', 
-    transform: 'translate3d(0px, -30.3504px, 0px)'
-  }}
-></div>
-  <div class="container" style={{position: 'relative', zIndex: 2}}>
-    <div class="row">
-      <div class="grid_6">
-        <h2>Providing proper treatment for each individual</h2>
-      </div>
-    </div>
-  </div>
-</section>
-
+      <section className="parallax parallax_3" data-url={img07}>
+        <div 
+          className="parallax_image" 
+          style={{
+            backgroundImage: `url(${img07})`, 
+            backgroundColor: 'inherit', 
+            height: '703px', 
+            transform: 'translate3d(0px, -30.3504px, 0px)'
+          }}
+        ></div>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
+          <div className="row">
+            <div className="grid_6">
+              <h2>Des soins adaptés à chaque individu</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+   
       <section className="well9">
   <div className="container">
     <h5>our prices</h5>

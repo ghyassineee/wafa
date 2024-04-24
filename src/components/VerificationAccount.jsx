@@ -105,7 +105,7 @@ const VerificationAccount = ({ email, changeView }) => {
       <div className="lowin-box-inner">
         <form>
           <p>Verification Account</p>
-          <div className="lowin-group">
+          <div className="lowin-group otpGroup">
             <OtpInput
               value={otp}
               onChange={handleOtpChange}

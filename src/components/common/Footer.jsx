@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faWhatsapp, faInstagram} from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import img01 from '../../assets/images/logo.png';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 // Import the CSS file
 import '../../assets/css/footer.css';
@@ -44,10 +45,11 @@ const Footer: React.FC = () => {
       {/* Navigation Section */}
       <section className="custom-container">
         <div className="row custom-row">
-          <div className="col-md-4 custom-col">
+          <div className="col-md-4 custom-col2">
             {/* Logo */}
             <div>
               <img className="footer-logo" src={img01} alt="Logo" />
+              <h2 >Dr Wafa Zaiem</h2>
             </div>
             {/* Specialty and Description */}
             <div>
@@ -55,19 +57,19 @@ const Footer: React.FC = () => {
               <p>Découvrez notre clinique dentaire, où professionnalisme et soin du détail vous garantissent une expérience sans égal</p>
             </div>
           </div>
-          <div className="col-md-4 custom-col">
+          <div className="col-md-4 custom-col3">
             {/* Quick Links */}
             <div>
-              <h3>Quick Links</h3>
-              <ul>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Prices</a></li>
-                <li><a href="#">Lastest News</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Devis</a></li>
-                <li><a href="#">Reserver Maintenant</a></li>
-              </ul>
+            <h3>Liens Rapides</h3>
+    <ul className="quick-links">
+      <li><a href="#"><FontAwesomeIcon icon={faArrowRight} style={{ marginRight: '3px' }} />    À propos de nous </a></li>
+      <li><a href="#"><FontAwesomeIcon icon={faArrowRight} style={{ marginRight: '3px' }} /> Services </a></li>
+      <li><a href="#"><FontAwesomeIcon icon={faArrowRight} style={{ marginRight: '3px' }} />  Tarifs </a></li>
+      <li><a href="#"><FontAwesomeIcon icon={faArrowRight} style={{ marginRight: '3px' }} />  Dernières nouvelles </a></li>
+      <li><a href="#"><FontAwesomeIcon icon={faArrowRight} style={{ marginRight: '3px' }} />  Contacts </a></li>
+      <li><a href="#"><FontAwesomeIcon icon={faArrowRight} style={{ marginRight: '3px' }} />  Devis </a></li>
+      <li><a href="#"><FontAwesomeIcon icon={faArrowRight} style={{ marginRight: '3px' }} />  Réserver maintenant </a></li>
+    </ul>
             </div>
           </div>
           <div className="col-md-4 custom-col">
@@ -96,7 +98,7 @@ const Footer: React.FC = () => {
             <li><a href="https://www.instagram.com/dr_wafazaiem/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /></a></li>
           </ul>
         </div>
-        <span id="copyright-year">&copy; {currentYear} dr wafa. All rights reserved. </span>
+        <span id="copyright-year">&copy; {currentYear} Dr. Wafa. Tous droits réservés. </span>
       </div>
     </footer>
   );

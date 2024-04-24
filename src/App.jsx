@@ -27,6 +27,17 @@ import './assets/css/fl-fill-round-icons.css';
 import './assets/css/animate.css';
 
 function App() {
+
+  const fetchPrimaryColor = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:1129/api/crm/settings');
+      if (response.status === 200 && response.data.color) {
+        document.documentElement.style.setProperty('--primary-color', response.data.color);
+      }
+    } catch (error) {
+      console.error('Failed to fetch primary color:', error);
+    }
+  };
   const [data, setData] = useState(false);
   const { logindata, setLoginData } = useContext(LoginContext);
   const navigate = useNavigate();
@@ -80,6 +91,7 @@ function App() {
   useEffect(() => {
     new WOW().init();
     //  setTimeout(() => {
+      fetchPrimaryColor();
 
     // }, 1000);
     validPatien();

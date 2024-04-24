@@ -2,28 +2,26 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import logo from "../assets/images/logo-dark.png";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../context/AuthContext";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import validator from "validator";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import AppConfig from "../AppConfig.js"
+import AppConfig from "../AppConfig.js";
 import axios from "axios";
 import OtpForgetPassword from "./OtpForgetPassword";
 import QuestionsForgot from "./QuestionsForgot";
 import ChangeForgotPassword from "./ChangeForgotPassword";
 import VerificationAccount from "./VerificationAccount";
 import RegisterQuestions from "./RegisterQuestions";
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const AuthPage = () => {
-
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-
   };
   const [currentView, setCurrentView] = useState("login");
   const [isAnimating, setIsAnimating] = useState(false);
@@ -57,11 +55,11 @@ const AuthPage = () => {
         token,
       })
       .then((resp) => {
-        console.log(true,"verify-captcha")
+        console.log(true, "verify-captcha");
         setCaptchaResult(true);
       })
       .catch(({ response }) => {
-        console.log(false,"verify-captcha")
+        console.log(false, "verify-captcha");
 
         setCaptchaResult(false);
       })
@@ -79,14 +77,14 @@ const AuthPage = () => {
         token,
       })
       .then((resp) => {
-        console.log(true,"verify-captcha")
+        console.log(true, "verify-captcha");
         setCaptchaResultForgetPass(true);
       })
       .catch(({ response }) => {
-        console.log(false,"verify-captcha")
+        console.log(false, "verify-captcha");
 
         setCaptchaResultForgetPass(false);
-      })
+      });
   };
   const hcaptchaVerifLogin = (token) => {
     if (!token) {
@@ -98,14 +96,14 @@ const AuthPage = () => {
         token,
       })
       .then((resp) => {
-        console.log(true,"verify-captcha")
+        console.log(true, "verify-captcha");
         setCaptchaResultLogin(true);
       })
       .catch(({ response }) => {
-        console.log(false,"verify-captcha")
+        console.log(false, "verify-captcha");
 
         setCaptchaResultLogin(false);
-      })
+      });
   };
 
   ///////////////////////////////////////
@@ -150,6 +148,7 @@ const AuthPage = () => {
     password: "",
     repeatPassword: "",
     termsChecked: false,
+    dateOfBirth:"",
   });
   console.log(formRegisterData, "AAAAA");
   const [validationRegisterMessage, setValidationRegisterMessage] = useState({
@@ -161,8 +160,10 @@ const AuthPage = () => {
     password: "",
     repeatPassword: "",
     termsChecked: "",
+    dateOfBirth: "",
+    
   });
-
+console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"log of date");
   const handleFormRegister = () => {
     setFormRegisterData({
       name: "",
@@ -181,9 +182,9 @@ const AuthPage = () => {
     setFormRegisterData({ ...formRegisterData, [name]: newValue });
     setValidationRegisterMessage({ ...validationRegisterMessage, [name]: "" });
   };
+  console.log(formRegisterData)
 
   const registerPatient = async () => {
-    
     try {
       const response = await axios.post(
         "http://127.0.0.1:1129/api/patient/register",
@@ -195,6 +196,7 @@ const AuthPage = () => {
           address: formRegisterData.address,
           password: formRegisterData.password,
           confirmPassword: formRegisterData.repeatPassword,
+          dateOfBirth: formRegisterData.dateOfBirth,
         },
         {
           headers: {
@@ -205,12 +207,12 @@ const AuthPage = () => {
 
       if (response.status === 201) {
         alert("Registration Successfully done 😃!");
-        changeView("registerQuestions")
+        changeView("registerQuestions");
         // handleFormRegister()
       }
     } catch (error) {
       if (error.response && error.response.status === 422) {
-        alert("Email is already registered. Please use a different email.");
+        alert("Email is already registered. Please use a different emailllll.");
       } else {
         console.error("Error registering user:", error);
       }
@@ -335,7 +337,7 @@ const AuthPage = () => {
       }));
       return;
     }
-    registerPatient()
+    registerPatient();
     // changeView("registerQuestions");
   };
   ///////////////////////////////////////////////
@@ -370,7 +372,7 @@ const AuthPage = () => {
       if (response.status === 200) {
         alert("Email sent successfully");
         setCurrentView("otpForgetPassword");
-        setCaptchaResultForgetPass(false)
+        setCaptchaResultForgetPass(false);
       } else if (response.status === 404) {
         setCurrentView("login");
         alert(`User with email "${emailForgot}" not found.`);
@@ -482,13 +484,16 @@ const AuthPage = () => {
           "patientdataId",
           response.data.result.patientValid._id
         );
-        console.log(response.data.result)
+        console.log(response.data.result);
         if (response.data.result.patientValid.accessLevel === "admin") {
-          
-          window.location.href = "http://127.0.0.1:4000";  // Changed 'navigate' to 'window.location.href'
-        }
-        else {
-        navigate("/");
+          window.location.href = "http://127.0.0.1:4000"; // Changed 'navigate' to 'window.location.href'
+          setFormData({
+            email: "",
+            password: "",
+            rememberMe: false,
+          });
+        } else {
+          navigate("/");
         }
         setFormData({
           email: "",
@@ -501,7 +506,15 @@ const AuthPage = () => {
         sendVerifEmail();
       }
       console.log(response.status, "response");
+      if(response.status ===422 || response.status ===404){
+        alert("Invalid emailor password")
+        return
+      }
     } catch (error) {
+      if(error.response.status === 422 || error.response.status ===404){
+        alert("Invalid emailor password")
+        return
+      }
       if (error.response && error.response.status === 403) {
         changeView("verifAccount");
         sendVerifEmail();
@@ -544,10 +557,8 @@ const AuthPage = () => {
       setIsAnimating(false);
 
       setCurrentView(view); // Change view after the animation
-
     }, 200);
   };
-
 
   return (
     <div className="lowin">
@@ -556,8 +567,8 @@ const AuthPage = () => {
       </div>
       <div className={`lowin-wrapper ${isAnimating ? "lowin-animated" : ""}`}>
         {currentView === "login" && (
-    <div className="lowin-box lowin-login">
-    <div className="lowin-box-inner">
+          <div className="lowin-box lowin-login">
+            <div className="lowin-box-inner">
               <form onSubmit={handleSubmit}>
                 <p>Sign in to continue</p>
                 <div className="lowin-group">
@@ -577,20 +588,23 @@ const AuthPage = () => {
                   )}
                 </div>
                 <div className="password-input-group lowin-group">
-  <input
-    type={showPassword ? 'text' : 'password'}
-    name="password"
-    autoComplete="current-password"
-    className="lowin-input"
-    placeholder="Password"
-    value={formData.password}
-    onChange={handleChange}
-  />
-  <button type="button" className="password-toggle-btn" onClick={togglePasswordVisibility}>
-    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-  </button>
-</div>
-
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    autoComplete="current-password"
+                    className="lowin-input"
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="button"
+                    className="password-toggle-btn"
+                    onClick={togglePasswordVisibility}
+                  >
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                  </button>
+                </div>
 
                 <div className="lowin-group password-group">
                   <div className="password-remember-group">
@@ -617,14 +631,13 @@ const AuthPage = () => {
                   </div>
                 </div>
                 <div className="captcha-container">
-
-                <HCaptcha
-                  ref={(ref) => (captchaLogin.current = ref)}
-                  sitekey={AppConfig.SITEKEY}
-                  onVerify={(token) => hcaptchaVerifLogin(token)}
-                  onExpire={(e) => setCaptchaResultLogin(false)}
-                />
-                                </div>
+                  <HCaptcha
+                    ref={(ref) => (captchaLogin.current = ref)}
+                    sitekey={AppConfig.SITEKEY}
+                    onVerify={(token) => hcaptchaVerifLogin(token)}
+                    onExpire={(e) => setCaptchaResultLogin(false)}
+                  />
+                </div>
 
                 <button
                   className="lowin-btn login-btn"
@@ -647,9 +660,7 @@ const AuthPage = () => {
             </div>
           </div>
         )}
-        {
-        
-        currentView === "forgot" && (
+        {currentView === "forgot" && (
           <div className="lowin-box lowin-forgot">
             <div className="lowin-box-inner">
               <form onSubmit={handleForgotPasswordSubmit}>
@@ -666,14 +677,13 @@ const AuthPage = () => {
                   />
                 </div>
                 <div className="captcha-container">
-
-                <HCaptcha
-                  ref={(ref) => (captchaForget.current = ref)}
-                  sitekey={AppConfig.SITEKEY}
-                  onVerify={(token) => hcaptchaVerifForget(token)}
-                  onExpire={(e) => setCaptchaResultForgetPass(false)}
-                />
-                                </div>
+                  <HCaptcha
+                    ref={(ref) => (captchaForget.current = ref)}
+                    sitekey={AppConfig.SITEKEY}
+                    onVerify={(token) => hcaptchaVerifForget(token)}
+                    onExpire={(e) => setCaptchaResultForgetPass(false)}
+                  />
+                </div>
 
                 <button
                   type="submit"
@@ -698,181 +708,214 @@ const AuthPage = () => {
         )}
 
         {currentView === "register" && (
-         <div className="lowin-box lowin-register">
-         <div className="lowin-box-inner">
-             <form onSubmit={handleRegisterSubmit}>
-                 <p>Let's create your account</p>
-                 <div className="form-row">
-                     <div className="lowin-group">
-                         <input
-                             type="text"
-                             name="name"
-                             autoComplete="name"
-                             className="lowin-input"
-                             placeholder="First Name"
-                             value={formRegisterData.name}
-                             onChange={handleChangeSubmit}
-                         />
-                         {validationRegisterMessage.name && (
-                             <div className="validation-message">
-                                 {validationRegisterMessage.name}
-                             </div>
-                         )}
-                     </div>
-                     <div className="lowin-group">
-                         <input
-                             type="text"
-                             name="lastName"
-                             autoComplete="family-name"
-                             className="lowin-input"
-                             placeholder="Last Name"
-                             value={formRegisterData.lastName}
-                             onChange={handleChangeSubmit}
-                         />
-                         {validationRegisterMessage.lastName && (
-                             <div className="validation-message">
-                                 {validationRegisterMessage.lastName}
-                             </div>
-                         )}
-                     </div>
-                 </div>
-                 <div className="form-row">
-    <div className="lowin-group" style={{ display: 'flex', alignItems: 'center' }}>
-  <PhoneInput
-    placeholder="Phone number"
-    value={formRegisterData.phoneNumber}
-    onChange={(value) => setFormRegisterData({
-      ...formRegisterData,
-      phoneNumber: value,
-    })}
-    defaultCountry="TN"
-    international
-    countryCallingCodeEditable={false} // Keep this to prevent editing of the country code
-    style={{ width: '100%', display: 'flex' }} // Ensures the input takes the full width
-  />
-  {validationRegisterMessage.phoneNumber && (
-    <div className="validation-message">
-      {validationRegisterMessage.phoneNumber}
-    </div>
-  )}
-</div>
-                     <div className="lowin-group">
-                         <input
-                             type="text"
-                             name="address"
-                             className="lowin-input"
-                             placeholder="Address"
-                             value={formRegisterData.address}
-                             onChange={handleChangeSubmit}
-                         />
-                         {validationRegisterMessage.address && (
-                             <div className="validation-message">
-                                 {validationRegisterMessage.address}
-                             </div>
-                         )}
-                     </div>
-                 </div>
-                 <div className="form-row">
-                     <div className="lowin-group">
-                         <input
-                             type="email"
-                             name="email"
-                             autoComplete="email"
-                             className="lowin-input"
-                             placeholder="Email"
-                             value={formRegisterData.email}
-                             onChange={handleChangeSubmit}
-                         />
-                         {validationRegisterMessage.email && (
-                             <div className="validation-message">
-                                 {validationRegisterMessage.email}
-                             </div>
-                         )}
-                     </div>
-
-
-<div className="password-input-group lowin-group">
-                         <input
-                             type="password"
-                             name="password"
-                             autoComplete="new-password"
-                             className="lowin-input"
-                             placeholder="Password"
-                             value={formRegisterData.password}
-                             onChange={handleChangeSubmit}
-                         />
-                          <button type="button" className="password-toggle-btn" onClick={togglePasswordVisibility}>
-    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-  </button>
-                         {validationRegisterMessage.password && (
-                             <div className="validation-message">
-                                 {validationRegisterMessage.password}
-                             </div>
-                         )}
-                     </div>
-                 </div>
-                 <div className="form-row">
-                 <div className="password-input-group lowin-group">
-                         <input
-                             type="password"
-                             name="repeatPassword"
-                             autoComplete="new-password"
-                             className="lowin-input"
-                             placeholder="Repeat Password"
-                             value={formRegisterData.repeatPassword}
-                             onChange={handleChangeSubmit}
-                         />
-                                           <button type="button" className="password-toggle-btn" onClick={togglePasswordVisibility}>
-    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-  </button>
-                         {validationRegisterMessage.repeatPassword && (
-                             <div className="validation-message">
-                                 {validationRegisterMessage.repeatPassword}
-                             </div>
-                         )}
-                     </div>
-                     <div className="lowin-group checkbox-group">
-                         <label>
-                             <input
-                                 type="checkbox"
-                                 name="termsChecked"
-                                 checked={formRegisterData.termsChecked}
-                                 onChange={handleChangeSubmit}
-                             />
-                             I agree to the terms and policy
-                         </label>
-                         {validationRegisterMessage.termsChecked && (
-                             <div className="validation-message">
-                                 {validationRegisterMessage.termsChecked}
-                             </div>
-                         )}
-                     </div>
-                 </div>
-                 <div className="captcha-container">
-
-                 <HCaptcha
-                     ref={(ref) => (captcha.current = ref)}
-                     sitekey={AppConfig.SITEKEY}
-                     onVerify={(token) => hcaptchaVerif(token)}
-                     onExpire={(e) => setCaptchaResult(false)}
-                 />
-                                  </div>
-
-                 <button className="lowin-btn">Submit</button>
-                 <div className="text-foot">
-                     Already have an account?{" "}
-                     <button
-                         type="button"
-                         onClick={() => toggleView("login")}
-                         className="login-link"
-                     >
-                         Login
-                     </button>
-                 </div>
-             </form>
-         </div>
-     </div>
+          <div className="lowin-box lowin-register">
+            <div className="lowin-box-inner">
+              <form onSubmit={handleRegisterSubmit}>
+                <p>Let's create your account</p>
+                <div className="form-row">
+                  <div className="lowin-group">
+                    <input
+                      type="text"
+                      name="name"
+                      autoComplete="name"
+                      className="lowin-input"
+                      placeholder="First Name"
+                      value={formRegisterData.name}
+                      onChange={handleChangeSubmit}
+                    />
+                    {validationRegisterMessage.name && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.name}
+                      </div>
+                    )}
+                  </div>
+                  <div className="lowin-group">
+                    <input
+                      type="text"
+                      name="lastName"
+                      autoComplete="family-name"
+                      className="lowin-input"
+                      placeholder="Last Name"
+                      value={formRegisterData.lastName}
+                      onChange={handleChangeSubmit}
+                    />
+                    {validationRegisterMessage.lastName && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.lastName}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div
+                    className="lowin-group"
+                    style={{ display: "flex", alignItems: "center" }}
+                  >
+                    <PhoneInput
+                      placeholder="Phone number"
+                      value={formRegisterData.phoneNumber}
+                      onChange={(value) =>
+                        setFormRegisterData({
+                          ...formRegisterData,
+                          phoneNumber: value,
+                        })
+                      }
+                      defaultCountry="TN"
+                      international
+                      countryCallingCodeEditable={false} // Keep this to prevent editing of the country code
+                      style={{ width: "100%", display: "flex" }} // Ensures the input takes the full width
+                    />
+                    {validationRegisterMessage.phoneNumber && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.phoneNumber}
+                      </div>
+                    )}
+                  </div>
+                  <div className="lowin-group">
+                    <input
+                      type="text"
+                      name="address"
+                      className="lowin-input"
+                      placeholder="Address"
+                      value={formRegisterData.address}
+                      onChange={handleChangeSubmit}
+                    />
+                    {validationRegisterMessage.address && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.address}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="lowin-group">
+                    <input
+                      type="email"
+                      name="email"
+                      autoComplete="email"
+                      className="lowin-input"
+                      placeholder="Email"
+                      value={formRegisterData.email}
+                      onChange={handleChangeSubmit}
+                    />
+                    {validationRegisterMessage.email && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.email}
+                      </div>
+                    )}
+                  </div>
+                  <div className="password-input-group lowin-group">
+        <input
+          type="date"
+          name="dateOfBirth"
+          className="lowin-input"
+          placeholder="Date de naissance"
+          value={formRegisterData.dateOfBirth}
+          onChange={handleChangeSubmit}
+        />
      
+                    {validationRegisterMessage.dateOfBirth && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.dateOfBirth}
+                      </div>
+                    )}
+                  </div>
+             
+                </div>
+                <div className="form-row">
+                <div className="password-input-group lowin-group">
+                    <input
+                      type="password"
+                      name="password"
+                      autoComplete="new-password"
+                      className="lowin-input"
+                      placeholder="Password"
+                      value={formRegisterData.password}
+                      onChange={handleChangeSubmit}
+                    />
+                    <button
+                      type="button"
+                      className="password-toggle-btn"
+                      onClick={togglePasswordVisibility}
+                    >
+                      <FontAwesomeIcon
+                        icon={showPassword ? faEyeSlash : faEye}
+                      />
+                    </button>
+                    {validationRegisterMessage.password && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.password}
+                      </div>
+                    )}
+                  </div>
+                  <div className="password-input-group lowin-group">
+                    <input
+                      type="password"
+                      name="repeatPassword"
+                      autoComplete="new-password"
+                      className="lowin-input"
+                      placeholder="Repeat Password"
+                      value={formRegisterData.repeatPassword}
+                      onChange={handleChangeSubmit}
+                    />
+                    <button
+                      type="button"
+                      className="password-toggle-btn"
+                      onClick={togglePasswordVisibility}
+                    >
+                      <FontAwesomeIcon
+                        icon={showPassword ? faEyeSlash : faEye}
+                      />
+                    </button>
+                    {validationRegisterMessage.repeatPassword && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.repeatPassword}
+                      </div>
+                    )}
+                  </div>
+             
+                </div>
+           
+       
+     <div className="lowin-group checkbox-group">
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="termsChecked"
+                        checked={formRegisterData.termsChecked}
+                        onChange={handleChangeSubmit}
+                      />
+                      I agree to the terms and policy
+                    </label>
+                    {validationRegisterMessage.termsChecked && (
+                      <div className="validation-message">
+                        {validationRegisterMessage.termsChecked}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="captcha-container">
+                  <HCaptcha
+                    ref={(ref) => (captcha.current = ref)}
+                    sitekey={AppConfig.SITEKEY}
+                    onVerify={(token) => hcaptchaVerif(token)}
+                    onExpire={(e) => setCaptchaResult(false)}
+                  />
+                </div>
+                <button className="lowin-btn">Submit</button>
+                <div className="text-foot">
+                  Already have an account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => toggleView("login")}
+                    className="login-link"
+                  >
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         )}
 
         {currentView === "otpForgetPassword" && (
@@ -900,7 +943,11 @@ const AuthPage = () => {
             handleFormRegister={handleFormRegister}
           />
         )}
+
+    
       </div>
+
+      
     </div>
   );
 };

@@ -192,6 +192,8 @@
   position: absolute;
   width: 90%;
   padding: 0 5%;
+
+  top: 450px;
   text-align: center;
   bottom: 160px;
   left: 0;
@@ -200,11 +202,12 @@
   text-transform: uppercase;
   color: #6a6a6a; }
   .camera-text span {
-    font-weight: 700; }
+    font-weight: 700;
+  color: white; }
   .camera-text_lg {
     font-size: 60px;
     line-height: 60px;
-    color: #f22240; }
+    color: #E80675 !important; }
   @media (max-width: 979px) {
     .camera-text {
       bottom: 110px;

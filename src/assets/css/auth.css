@@ -23,7 +23,7 @@
     background-image: url('../images/authpage.jpg'); /* Ensure the path is correct */
     background-size: cover;
     background-position: center;
-    opacity: 0.5; /* Lower opacity to blend with primary color */
+    opacity: 0.4; /* Lower opacity to blend with primary color */
     z-index: -1;
 }
 
@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-	top:30px;
+	top:10px;
 	border: 1px solid #AE0555;
 }
 
@@ -114,7 +114,7 @@
 	width: 100%;
 	position: absolute;
 	left: 0;
-	top: 30px;
+	top: 10px;
 }
 
 .lowin .lowin-box-inner {
@@ -706,7 +706,7 @@
 .lowin-input, .PhoneInputInput {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc; /* Consistent border color */
+    border: 1px solid #ccc !important;; /* Consistent border color */
     border-radius: 0; /* Remove border radius if any */
 }
 
@@ -744,7 +744,8 @@ border: none;
 .captcha-container {
     margin: 15px auto; /* Centering and spacing for captcha */
     display: flex;
-    justify-content: center; /* Center captcha horizontally */
+    justify-content: left; /* Center captcha horizontally */
+
 }
 /* General Text Color Enhancement */
 .lowin-box-inner p {
@@ -769,7 +770,7 @@ border: none;
 	margin: 0 5px;    /* Spacing between input boxes */
 	font-size: 16px;  /* Font size inside input boxes */
 	border-radius: 8px; /* Border radius for rounded corners */
-	text-align: center; /* Center text inside the input box */
+	text-align: center !important; /* Center text inside the input box */
 	border: 2px solid #E80675; /* Border color and style */
   }
   .inputStyle:hover, .inputStyle:focus {

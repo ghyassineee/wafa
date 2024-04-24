@@ -7,7 +7,10 @@
   font-weight: 100 900;
   font-stretch: 25% 151%;
 }
+:root {
 
+  --primary-color :#E80675;
+}
 /*========================================================
                       Main Styles
 =========================================================*/
@@ -58,7 +61,7 @@ h4 {
     font-size: 28px;
     line-height: 32px;
     text-transform: uppercase;
-    color: #E80675; }
+    color: var(--primary-color); }
 
 h5 {
   font-size: 18px !important;
@@ -208,7 +211,7 @@ h6 + * {
         }
 /*==================  Backgrounds  ======================*/
 .bg1 {
-  background: #E80675; }
+  background: var(--primary-color); }
 
 .bg2 {
   background: #f8f8f8; }
@@ -227,7 +230,7 @@ h6 + * {
   line-height: 55px; }
 
 /*==================    Buttons    ======================*/
-.btn, .btn1, .btn2, .btn3 {
+.btn, .btn1, .btn2, .btn3 ,.btn4{
   display: inline-block;
   border-radius: 3px;
   color: #fff;
@@ -236,7 +239,7 @@ h6 + * {
   line-height: 31px;
   font-weight: 600;
   padding: 10px 25px;
-  background: #E80675; }
+  background: var(--primary-color); }
   .btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
     background: #b5b5b5; }
   .btn:active, .btn1:active, .btn2:active, .btn3:active {
@@ -245,7 +248,7 @@ h6 + * {
 .btn1 {
   background: #b5b5b5; }
   .btn1:hover {
-    background: #f22240; }
+    background: var(--primary-color); }
   .btn1:active {
     background: #d40d29; }
 
@@ -262,6 +265,15 @@ h6 + * {
     color: #373737; }
   .btn3:active {
     background: #c2c2c2; }
+    .btn4 {
+      background: #fff;
+      color: #373737;
+      border: 1px solid #dbdbdb; }
+      .btn3:hover {
+        background: #dbdbdb;
+        color: #373737; }
+      .btn3:active {
+        background: #c2c2c2; }
 
 /*==================      Box      ======================*/
 .box {
@@ -430,7 +442,7 @@ h6 + * {
 
     .social-list li a:hover {
       background: #fff;
-      color: #E80675; }
+      color: var(--primary-color); }
     .social-list li a:active {
       background: #e6e6e6; }
     @media (max-width: 979px) {
@@ -470,9 +482,9 @@ h6 + * {
     .sf-menu > li > a {
       padding: 20px 35px 20px; } }
 .sf-menu > li.sfHover > a, .sf-menu > li > a:hover {
-  background: #E80675; }
+  background: var(--primary-color); }
 .sf-menu > li.active > a {
-  background: #E80675; }
+  background: var(--primary-color); }
 
 .sf-menu ul {
   display: none;
@@ -756,10 +768,10 @@ h6 + * {
   height: 70px;
   font-size: 34px;
   line-height: 65px;
-  color: #E80675;
+  color: var(--primary-color);
   background: #fff;
   border-radius: 50%;
-  border: 1px solid #E80675;
+  border: 1px solid var(--primary-color);
   position: fixed;
   right: 66px;
   bottom: 180px;
@@ -770,7 +782,7 @@ h6 + * {
   z-index: 20; }
   .toTop:hover {
     color: #fff;
-    background: #E80675;
+    background: var(--primary-color);
     border: 1px solid #fff;
     text-decoration: none; }
 
@@ -815,10 +827,10 @@ h6 + * {
 
 header { 
     background: #b6b5b3 no-repeat url(../images/bg1.jpg) ;
-  background-size: cover;
+  background-size: contain;
  background-position: center;
  position: relative;
-  
+
 }
   @media (max-width: 767px) {
     header {
@@ -866,7 +878,7 @@ main {
   text-align: center; }
 
 .secondary {
-  color: #E80675; }
+  color: var(--primary-color); }
 
 .circle {
   border-radius: 50%;
@@ -1020,10 +1032,17 @@ footer {
 background-color: rgba(53, 53, 53, 1); 
  color: #fff; }
  footer  h3{ 
-  color: #E80675;
+  color: var(--primary-color);
+  border-bottom: 4px solid var(--primary-color) ;
+  width: 45%;
+ }
+ footer  h2{ 
+  color: white;
+  font-size: 24px !important;
  }
 footer p{
   margin-top: 5px;
+  font-size: 16px;
 }
   footer .addr {
     font-size: 18px;
@@ -1051,4 +1070,10 @@ footer p{
       }
       footer span{
         font-size: 14px;
+      }
+      footer li a {
+        font-size: 16px;
+      }.quick-links li a:hover {
+        text-decoration: underline; /* Underline on hover */
+        color: var(--primary-color); /* Change color on hover */
       }

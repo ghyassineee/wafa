@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 
 
 import Nav from './Nav';
@@ -8,6 +8,36 @@ import img03 from '../../assets/images/page-1_slide03.jpg';
 import logo from '../../assets/images/logo.png';
 
 function Header() {
+  const [headerData, setHeaderData] = useState({
+    address: '',
+    email: '',
+    phone: '',
+    logo: ''
+  });
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:1129/api/crm/settings');
+        const data = await response.json();
+        if (response.ok) {
+          setHeaderData({
+            address: data.address || '',
+            email: data.email || '',
+            phone: data.phoneNumber || '',
+            logo: data.logoImage || ''
+          });
+
+        
+        } else {
+          console.error('Failed to fetch settings:', data.error);
+        }
+      } catch (error) {
+        console.error('Failed to fetch settings:', error.message);
+      }
+    };
+
+    fetchSettings();
+  }, []);
     return(
     
     
@@ -21,8 +51,10 @@ function Header() {
       </div>      
       
         <div className="camera-text">
-          <span className="camera-text_lg">Dr Wafa Zaiem</span><br />
-          <span >Diamonds are forever -  </span>SKYCE IS JUST FOR FUN
+          <span >Beauty starts with a smile and veneers </span>
+          <br />
+          <button className="btn1">Rendez vous</button>
+
         </div>
       </div>
       <div className="main-brand">
@@ -30,7 +62,8 @@ function Header() {
           <div className="brand">
             <h1 className="brand_name">
               <a href="/">
-                <img className="logo" src={logo} alt="" />
+                <img className="logo" src={headerData.logo} alt="" />
+                
               </a>
             </h1>
           </div>

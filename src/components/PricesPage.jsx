@@ -2,35 +2,60 @@ import React from 'react';
 import '../assets/css/contact-page.css';
 import img01 from '../assets/images/page-3_img01.jpg';
 import img07 from '../assets/images/parallax3.jpg';
+import Slider from 'react-slick';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function PricesPage() {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+};
+const galleryItems = [
+  {
+      beforeImg: img01,
+      afterImg: img01,
+      title: 'Des soins dentaires de qualité',
+      description: 'Nous offrons une gamme complète de services dentaires pour vous aider à maintenir une bonne santé bucco-dentaire.'
+  },
+  {
+      beforeImg: img01,
+      afterImg: img01,
+      title: 'Une équipe professionnelle',
+      description: 'Notre équipe expérimentée et attentionnée est dévouée à vous fournir des soins dentaires de haute qualité dans un environnement confortable.'
+  },
+  {
+    beforeImg: img01,
+    afterImg: img01,
+      title: 'Technologie de pointe',
+      description: 'Nous utilisons les dernières technologies et techniques pour assurer des résultats précis et durables pour nos patients.'
+  }
+];
   return (
     <main>
-      <section className="bg1 well7">
-        <div className="container">
-          <h5>Guide rapide pour obtenir un sourire éblouissant</h5>
-          <ul className="row index-list2">
-            <li className="grid_4">
-              <div>
-                <h6>Des soins dentaires de qualité</h6>
-                <p>Nous offrons une gamme complète de services dentaires pour vous aider à maintenir une bonne santé bucco-dentaire.</p>
-              </div>
-            </li>
-            <li className="grid_4">
-              <div>
-                <h6>Une équipe professionnelle</h6>
-                <p>Notre équipe expérimentée et attentionnée est dévouée à vous fournir des soins dentaires de haute qualité dans un environnement confortable.</p>
-              </div>
-            </li>
-            <li className="grid_4">
-              <div>
-                <h6>Technologie de pointe</h6>
-                <p>Nous utilisons les dernières technologies et techniques pour assurer des résultats précis et durables pour nos patients.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
+   <section className="bg1 well7">
+                <div className="container">
+                    <h5>Gallerie de photos</h5>
+                    <Slider {...settings}>
+                        {galleryItems.map((item, index) => (
+                            <div key={index} className={"gallerie-carousel"}>
+                                <div style={{ width: '40%' }}>
+                                    <img src={item.beforeImg} alt="Before" style={{ width: '100%', height: 'auto' }}/>
+                                </div>
+                                <div style={{ width: '40%' }}>
+                                    <img src={item.afterImg} alt="After" style={{ width: '100%', height: 'auto' }}/>
+                                </div>
+                                </div>
+
+                        ))}
+                    </Slider>
+                </div>
+            </section>
       <section className="well9">
         <div className="container">
           <h5>Quel est le coût des soins dentaires?</h5>

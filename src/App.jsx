@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,Navigate } from 'react-router-dom';
 import { LoginContext } from './context/AuthContext.jsx';
 import HomePage from './components/HomePage.jsx';
 import ContactPage from './components/ContactPage.jsx';
@@ -25,6 +25,7 @@ import './assets/css/owl-carousel.css';
 import './assets/css/google-map.css';
 import './assets/css/fl-fill-round-icons.css';
 import './assets/css/animate.css';
+import ProfilePage from './components/ProfilePage.jsx';
 
 function App() {
 
@@ -97,6 +98,11 @@ function App() {
     validPatien();
     setData(true);
   }, []);
+
+  const AuthGuard = ({ children }) => {
+    // Check if the login data exists and return children or redirect
+    return logindata ? <Navigate to="/" replace /> : children;
+  };
 // app.use(cookieParser());
   return (
         <Routes>
@@ -108,7 +114,8 @@ function App() {
           <Route path="/prices" element={<Layout><PricesPage /></Layout>} />
           <Route path="/blog" element={<Layout><BlogPage /></Layout>} />
 
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/auth" element={<AuthGuard><AuthPage /></AuthGuard>} />
+          <Route path='/profile/:id' element={<Layout><ProfilePage /></Layout>} />
 
         </Routes>
   );

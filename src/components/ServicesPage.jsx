@@ -69,18 +69,45 @@ function ServicesPage() {
             <h6>Orthodontie pour tous les âges</h6>
             <p>Offrez-vous le sourire de vos rêves avec nos solutions d’orthodontie adaptées tant aux enfants qu’aux adultes.</p>
           </div>
+          
+        </div>
+        <div className="row">
+          <div className="grid_4 wow fadeInLeft" data-wow-delay="0.2s">
+            <img src={img01} alt="" />
+            <h6>Implantologie dentaire de haute précision</h6>
+            <p>Nos spécialistes en implantologie utilisent des techniques avancées pour un résultat esthétique et durable.</p>
+          </div>
+          <div className="grid_4 wow fadeInLeft">
+            <img src={img02} alt="" />
+            <h6>Orthodontie pour tous les âges</h6>
+            <p>Offrez-vous le sourire de vos rêves avec nos solutions d’orthodontie adaptées tant aux enfants qu’aux adultes.</p>
+          </div>
+          
+        </div>
+        <div className="row">
+          <div className="grid_4 wow fadeInLeft" data-wow-delay="0.2s">
+            <img src={img01} alt="" />
+            <h6>Implantologie dentaire de haute précision</h6>
+            <p>Nos spécialistes en implantologie utilisent des techniques avancées pour un résultat esthétique et durable.</p>
+          </div>
+          <div className="grid_4 wow fadeInLeft">
+            <img src={img02} alt="" />
+            <h6>Orthodontie pour tous les âges</h6>
+            <p>Offrez-vous le sourire de vos rêves avec nos solutions d’orthodontie adaptées tant aux enfants qu’aux adultes.</p>
+          </div>
+          
         </div>
       </div>
       <div className="grid_4">
         <h5>Nos principes de soin</h5>
         <ul className="index-list wow fadeInRight">
-          <li>
+          <li className='services-column'>
             <div>
               <h6>Engagement envers l’excellence</h6>
               <p>Nous nous engageons à fournir les meilleurs soins possibles avec une attention constante à la qualité et au confort.</p>
             </div>
           </li>
-          <li>
+          <li className='services-column'>
             <div>
               <h6>Approche centrée sur le patient</h6>
               <p>Chaque traitement est personnalisé pour répondre aux besoins spécifiques de nos patients, garantissant des résultats optimaux.</p>

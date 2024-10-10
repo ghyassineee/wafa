@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import '../assets/css/contact-page.css';
 import img01 from '../assets/images/page-4_img01.jpg';
 import img02 from '../assets/images/page-4_img02.jpg';
@@ -7,28 +7,65 @@ import img04 from '../assets/images/page-4_img04.jpg';
 import img05 from '../assets/images/page-4_img05.jpg';
 import img07 from '../assets/images/parallax3.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Slider from 'react-slick';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import {faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function BlogPage() {
+  const testimonials = [
+    {
+        img: img01,
+        date: "2022-04-12",
+        stars: 5,
+        name: "GHOUL Yassine",
+        message: "Une expérience exceptionnelle ! Le personnel chaleureux et professionnel m'a mis à l'aise dès mon arrivée. La clinique est moderne et bien équipée. Je suis très satisfaite du résultat de mon traitement dentaire. Je recommande vivement cette clinique à tous ceux qui recherchent des soins dentaires de qualité."
+
+      },
+    {
+        img: img02,
+        date: "2022-05-18",
+        stars: 4,
+        name: "GHOUL Yassine",
+        message: "Une expérience exceptionnelle ! Le personnel chaleureux et professionnel m'a mis à l'aise dès mon arrivée. La clinique est moderne et bien équipée. Je suis très satisfaite du résultat de mon traitement dentaire. Je recommande vivement cette clinique à tous ceux qui recherchent des soins dentaires de qualité."
+
+      },
+    // Add more testimonials as needed
+];
+
+const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+};
+
   return (
     <main>
-      <section className="bg1 well7">
-        <div className="container">
-          <h5>Things You Need to Know</h5>
-          <div className="row">
-            <div className="grid_4">
-              <img src={img01} alt="" />
-            </div>
-            <div className="grid_8">
-              <h6>dignissim fermentum. Mauris arcu magna, lacinia</h6>
-              <p>Proirenert yasemosera secaerat ai kesesasetrsego etayse Proin vitae nunc tristique, porta magna in, gravida nunc. Fusce lobortis sem vitae risus dignissim fermentum. Mauris arcu magna, lacinia vitae nulla eget, consectetur sodales purus. Vivamus luctus risus et purus consectetur, nec pulvinar neque dictum. Integer porttitor</p>
-              <br />
-              <p>Вolor a mattis venenatis. Nunc id velit eget lorem semper facilisis ut sed lectus. Donec interdum urna a velit pulvinar, nec sollicitudin leo tristique. Sed mollis massa sit amet ligula aliquet interdum. Maecenas et aliquam nisl. Proin non viverra</p>
-            </div>
-          </div>
-        </div>
-      </section>
+<section className="bg1 well7">
+    <div className="container">
+        <Slider {...settings}>
+            {testimonials.map((testimonial, index) => (
+                <div key={index} className="testimonial-item p-4">
+                    <img src={testimonial.img} alt="" className="w-full max-w-xs h-auto mb-4" />
+                    <div>
+                        <h6>{testimonial.name}</h6>
+                        <p>{'★'.repeat(testimonial.stars)}{'☆'.repeat(5 - testimonial.stars)}</p>
+
+                        <p>{testimonial.message}</p>
+                        <p>{testimonial.date}</p>
+
+                    </div>
+                </div>
+            ))}
+        </Slider>
+    </div>
+</section>
 
       <section class="well6">
   <div class="container">

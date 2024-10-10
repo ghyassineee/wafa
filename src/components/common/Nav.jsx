@@ -10,7 +10,6 @@ const Nav = () => {
   const [activeTitle, setActiveTitle] = useState('About us');
   const [isSticky, setSticky] = useState(false);
   const { logindata, setLoginData } = useContext(LoginContext);
-   console.log(logindata) 
   const navigate = useNavigate()
   useEffect(() => {
     const handleScroll = () => {
@@ -125,19 +124,20 @@ const logoutPatient = async () => {
             <Link to="/services" onClick={() => handleMenuItemClick("Services")}>Services</Link>
           </li>
           <li className={isActive('/prices') ? 'active' : ''}>
-            <Link to="/prices" onClick={() => handleMenuItemClick("Prices")}>Prices</Link>
+            <Link to="/prices" onClick={() => handleMenuItemClick("Prices")}>Gallerie</Link>
           </li>
           <li className={isActive('/blog') ? 'active' : ''}>
-            <Link to="/blog" onClick={() => handleMenuItemClick("Latest News")}>Latest News</Link>
+            <Link to="/blog" onClick={() => handleMenuItemClick("Latest News")}>Temoignage</Link>
           </li>
-          <li className={isActive('/contacts') ? 'active' : ''}>
-            <Link to="/contacts" onClick={() => handleMenuItemClick("Contacts")}>Contacts</Link>
+          <li className={isActive('/reservation') ? 'active' : ''}>
+            <Link to="/reservation" onClick={() => handleMenuItemClick("Reserver Maintenant")}>Reservez</Link>
           </li>
           <li className={isActive('/devis') ? 'active' : ''}>
             <Link to="/devis" onClick={() => handleMenuItemClick("Devis")}>Devis</Link>
           </li>
-          <li className={isActive('/reservation') ? 'active' : ''}>
-            <Link to="/reservation" onClick={() => handleMenuItemClick("Reserver Maintenant")}>Reserver Maintenant</Link>
+      
+          <li className={isActive('/contacts') ? 'active' : ''}>
+            <Link to="/contacts" onClick={() => handleMenuItemClick("Contacts")}>Contactez nous</Link>
           </li>
           {/* More menu items... */}
         </ul>
@@ -153,43 +153,25 @@ const logoutPatient = async () => {
         </li>
         <li className={isActive('/services') ? 'active' : ''}>
           <Link to="/services">Services</Link>
-          {/* Example of submenu, if needed */}
-          <ul>
-            <li className={isActive('/services/history') ? 'active' : ''}>
-              <Link to="/services/history">Histoire</Link>
-            </li>
-            <li className={isActive('/services/staff') ? 'active' : ''}>
-              <Link to="/services/staff">Personnel</Link>
-              {/* Example of submenu, if needed */}
-              <ul>
-                <li className={isActive('/services/staff/fresh') ? 'active' : ''}>
-                  <Link to="/services/staff/fresh">Nouveaux</Link>
-                </li>
-                <li className={isActive('/services/staff/archive') ? 'active' : ''}>
-                  <Link to="/services/staff/archive">Archives</Link>
-                </li>
-              </ul>
-            </li>
-            <li className={isActive('/services/news') ? 'active' : ''}>
-              <Link to="/services/news">Actualités</Link>
-            </li>
-          </ul>
+        
         </li>
         <li className={isActive('/prices') ? 'active' : ''}>
-          <Link to="/prices">Tarifs</Link>
+          <Link to="/prices">Gallerie</Link>
         </li>
         <li className={isActive('/blog') ? 'active' : ''}>
-          <Link to="/blog">Blog</Link>
+          <Link to="/blog">Temoignage</Link>
         </li>
-        <li className={isActive('/contacts') ? 'active' : ''}>
-          <Link to="/contacts">Contacts</Link>
+        <li className={isActive('/reservation') ? 'active' : ''}>
+          <Link to="/reservation">Réservez</Link>
         </li>
         <li className={isActive('/devis') ? 'active' : ''}>
           <Link to="/devis">Devis</Link>
         </li>
-        <li className={isActive('/reservation') ? 'active' : ''}>
-          <Link to="/reservation">Réserver</Link>
+        <li className={isActive('/contacts') ? 'active' : ''}>
+          <Link to="/contacts">Contactez nous</Link>
         </li>
+         {/* Full-screen navigation (desktop) 
+    
         {logindata ? (
           <li>
             <Link onClick={logoutPatient}>Se déconnecter</Link>
@@ -198,7 +180,7 @@ const logoutPatient = async () => {
           <li className={isActive('/auth') ? 'active' : ''}>
             <Link to="/auth">Se connecter</Link>
           </li>
-        )}
+        )}*/}
       </ul>
     </nav>
   </div>

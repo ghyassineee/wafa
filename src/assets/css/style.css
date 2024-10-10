@@ -179,7 +179,6 @@ h6 + * {
     .brand_name a {
       display: block;
       padding: 10px 10px 10px 10px;
-      background: linear-gradient(135deg, #4c4f50 0%, #6e7275 50%, #5d6162 100%);
 
     border-radius: 10px;}
       .brand_name a:before, .brand_name a:after {
@@ -207,7 +206,7 @@ h6 + * {
         font-size: 34px;
         line-height: 30px; }
         .brand_name .logo{
-          width: 150px !important;
+          width: 250px !important;
         }
 /*==================  Backgrounds  ======================*/
 .bg1 {
@@ -246,9 +245,9 @@ h6 + * {
     background: #9c9c9c; }
 
 .btn1 {
-  background: #b5b5b5; }
+  background: var(--primary-color);}
   .btn1:hover {
-    background: var(--primary-color); }
+    background: #b5b5b5;  }
   .btn1:active {
     background: #d40d29; }
 
@@ -755,6 +754,9 @@ h6 + * {
   top: 0px !important;
   position: fixed !important;
   width: 100% !important;
+  position: absolute;
+  bottom: auto !important;
+left: auto !important;
 }
   .isStuck .sf-menu > li > a {
     padding: 15px 35px 15px; }
@@ -827,20 +829,23 @@ h6 + * {
 
 header { 
     background: #b6b5b3 no-repeat url(../images/bg1.jpg) ;
-  background-size: contain;
+  background-size: cover;
  background-position: center;
  position: relative;
 
 }
+
+.stuck_container {
+  position: absolute;
+  bottom: 0;
+left: 13%;}
+
   @media (max-width: 767px) {
     header {
       text-align: center; } }
   header .nav {
     background: rgba(53, 53, 53, 0.33); }
 
-.stuck_container_abs {
-  position: absolute;
-  bottom: 0; }
 
 .main-brand {
   
@@ -1077,3 +1082,193 @@ footer p{
         text-decoration: underline; /* Underline on hover */
         color: var(--primary-color); /* Change color on hover */
       }
+
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+      
+      @keyframes blink-cursor {
+        from, to { border-color: transparent; }
+        50% { border-color:var(--primary-color); }
+      }
+      
+      .typing-effect {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 24px;
+        color: #FFFFFF;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid var(--primary-color); /* The cursor */
+        animation: blink-cursor 800ms steps(30, end) infinite;
+      }
+      
+      @keyframes blink-cursor {
+        from, to { border-color: transparent }
+        50% { border-color: var(--primary-color) }
+      }
+      
+      .services-column{
+        min-height: 370px;
+      }
+
+      .gallerie-carousel {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
+      }
+    
+    .testimonial-controls {
+      margin-top: 100px;
+        text-align: center;
+    }
+    
+    .control-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #ffffff;
+    }
+    
+    .control-btn.left {
+        margin-right: 10px;
+    }
+    
+    .control-btn.right {
+        margin-left: 10px;
+    }
+    
+    /* Add hover effect for buttons */
+    .control-btn:hover {
+        color: #007BFF;
+    }
+
+    .testimonial-content {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+  }
+  
+  .testimonial-slide {
+      flex: 0 0 100%;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+  }
+  
+  .slide-active {
+      transform: translateX(0%);
+  }
+  
+  .slide-left {
+      transform: translateX(-100%);
+  }
+  
+  .slide-right {
+      transform: translateX(100%);
+  }
+  .top-bar {
+    background-color: var(--primary-color); /* Ensure --primary-color is defined in your CSS */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 ; /* Adjust padding as needed */
+  }
+  .left, .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .left span, .right button {
+    margin-left: 10px;
+    font-size: 14px; /* Set font size for all elements in left and right */
+  }
+
+  .top-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem ; /* Adjust padding as needed, using rem for consistency */
+    width: 80%;
+  }
+  /* Add these styles to your CSS file */
+.top-bar-container .right button {
+  background-color: white; /* White background */
+  color: #333; /* Dark text color, adjust as necessary */
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between the icon and text */
+  z-index: 999;
+}
+
+.top-bar-container .right button:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+}
+.testimonial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+.testimonial-item img {
+  display: block;
+  margin: 0 auto; /* Centers the image horizontally */
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+/* Add these CSS styles to your existing stylesheet */
+
+
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left, .right {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+/* Centering buttons in responsive mode */
+@media only screen and (max-width: 768px) {
+  .top-bar {
+    height: 70px; /* Adjust the height for responsive mode */
+  }
+
+  .top-bar-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left, .right {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px; /* Adjust as needed for spacing */
+  }
+  .left {
+    display: none;
+  }
+  .right button {
+    margin-left: 10px; /* Adjust as needed for spacing */
+  }
+  .camera-text {
+  top: 130px  !important;
+  }
+  .camera-text span{
+    font-size: 14px;
+  }
+}

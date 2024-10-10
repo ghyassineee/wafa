@@ -568,6 +568,17 @@
 	.lowin .lowin-wrapper {
 		width: 80%;
 	}
+	.form-row{
+		flex-direction: column;
+
+	}
+	.form-row .lowin-group {
+		margin-right: 0px !important;
+	}
+	.lowin .lowin-box {
+
+	overflow-y: auto;
+}
 }
 @media screen and (max-width: 320px) {
 	.lowin .lowin-wrapper {
@@ -656,7 +667,7 @@
 	border: 1px solid #AE0555 !important;
 }
 .PhoneInputInput {
-    height: 40px; 
+    height: 60px; 
     background:white !important; /* Same background as the input */
 	border: none;
     border-radius: 5px !important; 
@@ -685,7 +696,7 @@
 
 /* Style the country select with a border and adjust flag positioning */
 .PhoneInputCountrySelect {
-    border: 1px solid #E80675; /* Rose color border */
+    border: 1px solid #e2e2e2; /* Rose color border */
     background-position: center center; /* Center the flag vertically and horizontally */
     background-size: 20px 20px; /* Adjust size of the flag as needed */
     text-indent: 110%; /* Hide the country code text offscreen */
@@ -713,7 +724,6 @@
 .lowin-input:focus, .PhoneInputInput:focus,
 .lowin-input:hover, .PhoneInputInput:hover {
 border: none;	
-    border: 2px solid var(--color-primary) !important; /* Rose color bottom border on focus/hover */
     outline: none; /* Removes the default outline */
 }
 
@@ -796,7 +806,7 @@ border: none;
 	justify-content: center; /* Centers the OTP input container */
   }
   .PhoneInputCountry{
-	border: 1px solid #AE0555; /* Border color and style */
+	border: 1px solid #e2e2e2; /* Border color and style */
 	border-right: 0px solid #AE0555 !important;
 	margin-right: 0px;
 	padding: 0px 5px;

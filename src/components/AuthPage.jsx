@@ -18,10 +18,20 @@ import RegisterQuestions from "./RegisterQuestions";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const AuthPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+  const [showRepeatRegisterPassword, setShowRepeatRegisterPassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const toggleLoginPasswordVisibility = () => {
+    setShowLoginPassword(!showLoginPassword);
+  };
+
+  const toggleRegisterPasswordVisibility = () => {
+    setShowRegisterPassword(!showRegisterPassword);
+  };
+
+  const toggleRepeatRegisterPasswordVisibility = () => {
+    setShowRepeatRegisterPassword(!showRepeatRegisterPassword);
   };
   const [currentView, setCurrentView] = useState("login");
   const [isAnimating, setIsAnimating] = useState(false);
@@ -485,21 +495,16 @@ console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"l
           response.data.result.patientValid._id
         );
         console.log(response.data.result);
-        if (response.data.result.patientValid.accessLevel === "admin") {
-          window.location.href = "http://127.0.0.1:4000"; // Changed 'navigate' to 'window.location.href'
-          setFormData({
-            email: "",
-            password: "",
-            rememberMe: false,
-          });
-        } else {
-          navigate("/");
-        }
+       
         setFormData({
           email: "",
           password: "",
           rememberMe: false,
         });
+    
+          navigate("/");
+        
+     
         setLoginData(true);
       } else if (response.status === 403) {
         changeView("verifAccount");
@@ -589,7 +594,7 @@ console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"l
                 </div>
                 <div className="password-input-group lowin-group">
                   <input
-                    type={showPassword ? "text" : "password"}
+                    type={showLoginPassword ? "text" : "password"}
                     name="password"
                     autoComplete="current-password"
                     className="lowin-input"
@@ -600,9 +605,9 @@ console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"l
                   <button
                     type="button"
                     className="password-toggle-btn"
-                    onClick={togglePasswordVisibility}
+                    onClick={toggleLoginPasswordVisibility}
                   >
-                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                    <FontAwesomeIcon icon={showRegisterPassword ? faEyeSlash : faEye} />
                   </button>
                 </div>
 
@@ -825,8 +830,8 @@ console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"l
                 <div className="form-row">
                 <div className="password-input-group lowin-group">
                     <input
-                      type="password"
-                      name="password"
+  type={showRegisterPassword ? "text" : "password"}
+  name="password"
                       autoComplete="new-password"
                       className="lowin-input"
                       placeholder="Password"
@@ -836,10 +841,10 @@ console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"l
                     <button
                       type="button"
                       className="password-toggle-btn"
-                      onClick={togglePasswordVisibility}
+                      onClick={toggleRegisterPasswordVisibility}
                     >
                       <FontAwesomeIcon
-                        icon={showPassword ? faEyeSlash : faEye}
+                        icon={showRegisterPassword ? faEyeSlash : faEye}
                       />
                     </button>
                     {validationRegisterMessage.password && (
@@ -850,8 +855,8 @@ console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"l
                   </div>
                   <div className="password-input-group lowin-group">
                     <input
-                      type="password"
-                      name="repeatPassword"
+  type={showRepeatRegisterPassword ? "text" : "password"}
+  name="repeatPassword"
                       autoComplete="new-password"
                       className="lowin-input"
                       placeholder="Repeat Password"
@@ -861,10 +866,10 @@ console.log(formRegisterData.dateOfBirth,typeof(formRegisterData.dateOfBirth),"l
                     <button
                       type="button"
                       className="password-toggle-btn"
-                      onClick={togglePasswordVisibility}
+                      onClick={toggleRepeatRegisterPasswordVisibility}
                     >
                       <FontAwesomeIcon
-                        icon={showPassword ? faEyeSlash : faEye}
+                        icon={showRepeatRegisterPassword ? faEyeSlash : faEye}
                       />
                     </button>
                     {validationRegisterMessage.repeatPassword && (
